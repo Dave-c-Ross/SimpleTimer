@@ -208,6 +208,20 @@ boolean SimpleTimer::isEnabled(int numTimer) {
     return enabled[numTimer];
 }
 
+unsigned long SimpleTimer::remainingTime(int numTimer) {
+    
+    // Timer does not exist or is not running
+    if ((numTimer >= MAX_TIMERS) || !enabled[numTimer]) {
+        return false;
+    }
+
+    unsigned long current_millis;
+
+    // get current time
+    current_millis = elapsed();
+    return delays[numTimer] - (current_millis - prev_millis[numTimer]);
+
+}
 
 void SimpleTimer::enable(int numTimer) {
     if (numTimer >= MAX_TIMERS) {

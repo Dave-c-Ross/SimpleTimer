@@ -78,6 +78,9 @@ public:
     // returns true if the specified timer is enabled
     boolean isEnabled(int numTimer);
 
+    // return remaining milliseconds before timer next execution
+    unsigned long remainingTime(int numTimer);
+
     // enables the specified timer
     void enable(int numTimer);
 
